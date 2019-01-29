@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: rgb(255, 197, 90);
+    font-size: 22px;
+}
+#container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* opacity: 0; */
+    
+}
+button#open_menu{
+    display: block;
+    text-align: center;
+    margin: 6px auto;
+    padding: 6px 12px;
+    
+}
+#items-list {
+    width: 100%;
+    padding: 2rem;
+    position: fixed;
+    z-index: -1;
+    top: -10%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    background: rgba(255, 204, 110);
+}
+.animation {
+    animation-name: show_menu;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes show_menu {
+    from {
+        top: -10%;
+        background: rgba(255, 204, 110, 0.7);
+    }
+    to {
+        top: 10%;
+        background: rgba(245, 159, 0, 0.7);
+    }
+}
+.remove-animation {
+    animation-name: hide_menu;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes hide_menu {
+    from {
+        top: 10%;
+    }
+    to {
+        top: -10%;
+    }
+}
+.list-item {
+    font-size: 18px;
+    padding: 6px;
+    margin: 0 6px;
+}
+.show_container_animation {
+    background-color:rgba(255, 166, 0,0.5);
+    animation-name: change_background;
+    animation-duration: 3s;
+    
+    /* animation-timing-function: ease-in; */
+    animation-fill-mode:forwards;
+}
+.enlarged_container {
+
+}
+@keyframes change_background {
+   0% {
+    background-color: rgba(231, 150, 0, 0);
+   }
+   20% {
+    background-color: rgba(231, 150, 0, 0.2);
+   }
+   40% {
+    background-color: rgba(231, 150, 0, 0.4);
+   }
+   60% {
+    background-color: rgba(231, 150, 0, 0.6);
+   }
+   80% {
+    background-color: rgba(231, 150, 0, 0.8);
+   }
+   100% {
+    background-color: rgba(231, 150, 0, 1);
+   }
+}
+.random-section {
+    height: 80vh;
+    border: 2px solid black;
+    background: rgb(255, 197, 90);
+}
