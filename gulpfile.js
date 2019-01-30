@@ -1,11 +1,11 @@
 var
   gulp         = require('gulp'),
   sass         = require('gulp-sass'),
-  browserSync = require('browser-sync').create(),
+  browserSync = require('browser-sync').create()
   // require tasks as dependencies
-  watch        = require('./semantic/tasks/watch'),
-  build        = require('./semantic/tasks/build')
-;
+//   watch        = require('./semantic/tasks/watch'),
+//   build        = require('./semantic/tasks/build')
+
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function() {
@@ -28,8 +28,8 @@ gulp.task('sass', function() {
 
 gulp.task('default', ['serve','sass']);
 
-gulp.task('watch-ui', watch);
-gulp.task('build-ui', build);
+// gulp.task('watch-ui', watch);
+// gulp.task('build-ui', build);
 // var gulp = require("gulp");
 // var sass = require("gulp-sass");
 // var browserSync = require("browser-sync").create();
