@@ -23,16 +23,64 @@
   top: 0;
   left: 0;
   width: 100%; }
+  #items-list li {
+    margin: 0 5px; }
 
-li {
-  margin: 0 5px; }
+h2 {
+  float: left;
+  width: 170px; }
 
-li a {
-  padding: 6px; }
+.popup {
+  float: left;
+  width: 340px;
+  background: #727272;
+  padding: 10px;
+  border-radius: 6px;
+  color: #FFF;
+  position: relative;
+  font-size: 12px;
+  line-height: 20px; }
+
+.popup:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid #727272;
+  position: absolute;
+  top: 16px;
+  left: -12px; }
+
+.triangle {
+  width: 10vw;
+  height: 10vh;
+  background: orange;
+  display: inline-block;
+  position: relative; }
+
+.triangle::after {
+  width: 0;
+  height: 0;
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid #bb2828;
+  border-left: 15px solid #cfe600;
+  border-right: 15px solid #00f128; }
 
 i {
-  color: white;
-  cursor: pointer; }
+  cursor: pointer;
+  display: inline-block; }
+
+#close-icon-container {
+  text-align: right; }
+  #close-icon-container i {
+    color: #3d1414; }
 
 .enlarge-nav {
   animation-name: bigger_nav;
@@ -73,8 +121,7 @@ i {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background: linear-gradient(rgba(255, 170, 255, 0.9), rgba(255, 119, 255, 0.9), rgba(255, 56, 255, 0.9), rgba(255, 0, 255, 0.9)); }
+  background: linear-gradient(rgba(255, 170, 255, 0.9), rgba(253, 164, 253, 0.9), rgba(250, 109, 250, 0.9), rgba(228, 0, 228, 0.9)); }
   #mobile-menu li {
     margin: 5px; }
     #mobile-menu li a {
@@ -89,6 +136,128 @@ i {
   animation-name: hide_mobile_nav;
   animation-duration: 1s;
   animation-fill-mode: forwards; }
+
+#mobile-items > li {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: -10%;
+  left: 0; }
+
+.pull-btn-one {
+  animation-name: takeaway_button_one;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.pull-btn-two {
+  animation-name: takeaway_button_two;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.pull-btn-three {
+  animation-name: takeaway_button_three;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.pull-btn-four {
+  animation-name: takeaway_button_four;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.pull-btn-five {
+  animation-name: takeaway_button_five;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.drop-btn-one {
+  animation-name: stack_button_one;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s; }
+
+.drop-btn-two {
+  animation-name: stack_button_two;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.4s; }
+
+.drop-btn-three {
+  animation-name: stack_button_three;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.6s; }
+
+.drop-btn-four {
+  animation-name: stack_button_four;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.8s; }
+
+.drop-btn-five {
+  animation-name: stack_button_five;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s; }
+
+@keyframes stack_button_one {
+  from {
+    top: -10%; }
+  to {
+    top: 50%; } }
+
+@keyframes takeaway_button_one {
+  from {
+    top: 50%; }
+  to {
+    top: -10%; } }
+
+@keyframes stack_button_two {
+  from {
+    top: -10%; }
+  to {
+    top: 43%; } }
+
+@keyframes takeaway_button_two {
+  from {
+    top: 43%; }
+  to {
+    top: -10%; } }
+
+@keyframes stack_button_three {
+  from {
+    top: -10%; }
+  to {
+    top: 36%; } }
+
+@keyframes takeaway_button_three {
+  from {
+    top: 36%; }
+  to {
+    top: -10%; } }
+
+@keyframes stack_button_four {
+  from {
+    top: -10%; }
+  to {
+    top: 29%; } }
+
+@keyframes takeaway_button_four {
+  from {
+    top: 29%; }
+  to {
+    top: -10%; } }
+
+@keyframes stack_button_five {
+  from {
+    top: -10%; }
+  to {
+    top: 22%; } }
+
+@keyframes takeaway_button_five {
+  from {
+    top: 22%; }
+  to {
+    top: -10%; } }
 
 @keyframes show_mobile_nav {
   from {
