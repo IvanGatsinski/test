@@ -11,11 +11,15 @@
 #container {
     padding-bottom: 6rem;
 }
+#items-container > p > i {
+    display: none; //TOGGLE MENU ICON!
+}
 #items-list {
+    padding: 1rem 0; 
     z-index: 98;
     margin: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     background: linear-gradient(to right,
     rgb(1, 52, 100),
@@ -26,10 +30,78 @@
     top: 0;
     left: 0;
     width: 100%;
+    flex-wrap: wrap;
     li {
         margin: 0 5px;
+        position: relative;
+        a {
+            box-sizing: content-box;
+            padding: 0 1rem;
+        }
+        &:before {
+        z-index: 9999;
+        content: '';
+        border-bottom: 2px solid rgb(255, 255, 255);
+        position: absolute;
+        bottom: 20%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 0;
+        transition: 0.5s;
+        }
+        
+        &:hover:before {
+            width: 70%;
+        }
+    }
+}
+.enlarge-nav {
+    animation-name: bigger_nav;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.shrink-nav {
+    animation-name: smaller_nav;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
 
-       
+@keyframes smaller_nav_btn {
+    from {
+        padding: 1rem 2rem;
+        font-size: 17px;
+    }
+    to {
+        padding: 0 1rem;
+        font-size: 14px
+    }
+}
+@keyframes bigger_nav_btn {
+    from {
+        padding: 0 1rem;
+        font-size: 14px;
+    }
+    to {
+        padding: 1rem 2rem;
+        font-size: 17px;
+    }
+}
+@keyframes smaller_nav {
+    from {
+        padding: 2rem 0;
+    }
+    to {
+        padding: 1rem 0;
+    }
+}
+
+@keyframes bigger_nav {
+    from {
+        padding: 1rem 0;
+    }
+    to {
+        padding: 2rem 0;
     }
 }
 h2 {
@@ -102,25 +174,7 @@ i {
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-@keyframes smaller_nav {
-    from {
-        padding-top: 1.5rem;
-        padding-bottom: 0.5rem;
-    }
-    to {
-        padding: 0;
 
-    }
-}
-@keyframes bigger_nav {
-    from {
-        padding: 0;
-    }
-    to {
-        padding-top: 1.5rem;
-        padding-bottom: 0.5rem;
-    }
-}
 .random-section {
     height: 100vh;
     border: 2px solid rgb(122, 45, 45);
@@ -131,8 +185,8 @@ i {
     position: fixed;
     z-index: 9999;
     top: 0;
-    left: -15%;
-    width: 15vw;
+    left: -53%;
+    width: 50vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -144,20 +198,13 @@ i {
 
     li {
         margin: 5px;
+        text-align: center;
+
         a {
-         width: 100%;   
+         width: 80%;
         }
+
     }
-}
-.show-mobile-menu {
-    animation-name: show_mobile_nav;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-.hide-mobile-menu {
-    animation-name: hide_mobile_nav;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
 }
 
 #mobile-items > li {
@@ -173,26 +220,31 @@ i {
     animation-name: takeaway_button_one;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 0.2s;
 }
 .pull-btn-two {
     animation-name: takeaway_button_two;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 0.4s;
 }
 .pull-btn-three {
     animation-name: takeaway_button_three;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 0.6s;
 }
 .pull-btn-four {
     animation-name: takeaway_button_four;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 0.8s;
 }
 .pull-btn-five {
     animation-name: takeaway_button_five;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    animation-delay: 1s;
 }
 .drop-btn-one {
     animation-name: stack_button_one;
@@ -223,6 +275,32 @@ i {
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-delay: 1s;
+}
+.add-body-margin {
+    animation-name: add_margin;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.remove-body-margin {
+    animation-name: remove_margin;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes add_margin {
+    from {
+        margin-left: 0;
+    }
+    to {
+        margin-left: 31.5%;
+    }
+}
+@keyframes remove_margin {
+    from {
+        margin-left: 31.5%;
+    }
+    to {
+        margin-left: 0;
+    }
 }
 @keyframes stack_button_one {
     from {
@@ -304,19 +382,4 @@ i {
         top: -10%;
     }
 }
-@keyframes show_mobile_nav {
-    from {
-        left: -15%;
-    }
-    to {
-        left: 0,
-    }
-}
-@keyframes hide_mobile_nav {
-    from {
-        left: 0%;
-    }
-    to {
-        left: -15%,
-    }
-}
+

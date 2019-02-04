@@ -2004,20 +2004,80 @@ template {
 #container {
   padding-bottom: 6rem; }
 
+#items-container > p > i {
+  display: none; }
+
 #items-list {
+  padding: 1rem 0;
   z-index: 98;
   margin: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #013464, #0068c8, #1b91ff);
   border-bottom: 2px solid rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  flex-wrap: wrap; }
   #items-list li {
-    margin: 0 5px; }
+    margin: 0 5px;
+    position: relative; }
+    #items-list li a {
+      box-sizing: content-box;
+      padding: 0 1rem; }
+    #items-list li:before {
+      z-index: 9999;
+      content: '';
+      border-bottom: 2px solid white;
+      position: absolute;
+      bottom: 20%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 0;
+      transition: 0.5s; }
+    #items-list li:hover:before {
+      width: 70%; }
+
+.enlarge-nav {
+  animation-name: bigger_nav;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.shrink-nav {
+  animation-name: smaller_nav;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+@keyframes smaller_nav_btn {
+  from {
+    padding: 1rem 2rem;
+    font-size: 17px; }
+  to {
+    padding: 0 1rem;
+    font-size: 14px; } }
+
+@keyframes bigger_nav_btn {
+  from {
+    padding: 0 1rem;
+    font-size: 14px; }
+  to {
+    padding: 1rem 2rem;
+    font-size: 17px; } }
+
+@keyframes smaller_nav {
+  from {
+    padding: 2rem 0; }
+  to {
+    padding: 1rem 0; } }
+
+@keyframes bigger_nav {
+  from {
+    padding: 1rem 0; }
+  to {
+    padding: 2rem 0; } }
 
 h2 {
   float: left;
@@ -2085,20 +2145,6 @@ i {
   animation-duration: 1s;
   animation-fill-mode: forwards; }
 
-@keyframes smaller_nav {
-  from {
-    padding-top: 1.5rem;
-    padding-bottom: 0.5rem; }
-  to {
-    padding: 0; } }
-
-@keyframes bigger_nav {
-  from {
-    padding: 0; }
-  to {
-    padding-top: 1.5rem;
-    padding-bottom: 0.5rem; } }
-
 .random-section {
   height: 100vh;
   border: 2px solid #7a2d2d;
@@ -2109,26 +2155,17 @@ i {
   position: fixed;
   z-index: 9999;
   top: 0;
-  left: -15%;
-  width: 15vw;
+  left: -53%;
+  width: 50vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(rgba(255, 170, 255, 0.9), rgba(253, 164, 253, 0.9), rgba(250, 109, 250, 0.9), rgba(228, 0, 228, 0.9)); }
   #mobile-menu li {
-    margin: 5px; }
+    margin: 5px;
+    text-align: center; }
     #mobile-menu li a {
-      width: 100%; }
-
-.show-mobile-menu {
-  animation-name: show_mobile_nav;
-  animation-duration: 1s;
-  animation-fill-mode: forwards; }
-
-.hide-mobile-menu {
-  animation-name: hide_mobile_nav;
-  animation-duration: 1s;
-  animation-fill-mode: forwards; }
+      width: 80%; }
 
 #mobile-items > li {
   margin: 0;
@@ -2140,27 +2177,32 @@ i {
 .pull-btn-one {
   animation-name: takeaway_button_one;
   animation-duration: 1s;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s; }
 
 .pull-btn-two {
   animation-name: takeaway_button_two;
   animation-duration: 1s;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-delay: 0.4s; }
 
 .pull-btn-three {
   animation-name: takeaway_button_three;
   animation-duration: 1s;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-delay: 0.6s; }
 
 .pull-btn-four {
   animation-name: takeaway_button_four;
   animation-duration: 1s;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-delay: 0.8s; }
 
 .pull-btn-five {
   animation-name: takeaway_button_five;
   animation-duration: 1s;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-delay: 1s; }
 
 .drop-btn-one {
   animation-name: stack_button_one;
@@ -2191,6 +2233,28 @@ i {
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-delay: 1s; }
+
+.add-body-margin {
+  animation-name: add_margin;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+.remove-body-margin {
+  animation-name: remove_margin;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
+
+@keyframes add_margin {
+  from {
+    margin-left: 0; }
+  to {
+    margin-left: 31.5%; } }
+
+@keyframes remove_margin {
+  from {
+    margin-left: 31.5%; }
+  to {
+    margin-left: 0; } }
 
 @keyframes stack_button_one {
   from {
@@ -2251,18 +2315,6 @@ i {
     top: 22%; }
   to {
     top: -10%; } }
-
-@keyframes show_mobile_nav {
-  from {
-    left: -15%; }
-  to {
-    left: 0; } }
-
-@keyframes hide_mobile_nav {
-  from {
-    left: 0%; }
-  to {
-    left: -15%; } }
 
 #topBtn {
   display: none;
@@ -6817,3 +6869,50 @@ input[type=range]::-ms-thumb {
     bottom: auto;
     text-align: center;
     margin-top: 1.2rem; } }
+
+@media only screen and (max-width: 768px) {
+  body {
+    background: purple; }
+  #items-list li {
+    flex-grow: 1;
+    margin: 0; } }
+
+@media only screen and (max-width: 557px) {
+  body {
+    background: #00e6da; }
+    body #mobile-menu {
+      display: none; }
+    body #items-list {
+      flex-direction: column; }
+      body #items-list li {
+        width: 100%; }
+        body #items-list li a {
+          width: 100%; } }
+
+@media only screen and (max-width: 360px) {
+  body {
+    background: #29f500; }
+    body #items-container i {
+      display: inline-block; }
+    body #mobile-menu {
+      display: flex; }
+    body #items-list {
+      display: none; }
+  .show-mobile-menu {
+    animation-name: show_mobile_nav;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; }
+  .hide-mobile-menu {
+    animation-name: hide_mobile_nav;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; }
+  @keyframes show_mobile_nav {
+    from {
+      left: -32%; }
+    to {
+      left: 0; } }
+  @keyframes hide_mobile_nav {
+    from {
+      left: 0%; }
+    to {
+      left: -32%; } } }
